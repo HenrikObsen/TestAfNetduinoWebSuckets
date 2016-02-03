@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAfNetduino", "TestAfNetduino\TestAfNetduino.csproj", "{231F7AB6-A4FD-4D1F-A323-8E812DF77814}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetduinoWebSocketTest", "..\..\..\Visual Studio 2015\Projects\NetduinoWebSocketTest\NetduinoWebSocketTest\NetduinoWebSocketTest.csproj", "{1459EC9F-17A8-4D9F-8C50-5272854A5E80}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{231F7AB6-A4FD-4D1F-A323-8E812DF77814}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{231F7AB6-A4FD-4D1F-A323-8E812DF77814}.Release|Any CPU.Build.0 = Release|Any CPU
 		{231F7AB6-A4FD-4D1F-A323-8E812DF77814}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1459EC9F-17A8-4D9F-8C50-5272854A5E80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1459EC9F-17A8-4D9F-8C50-5272854A5E80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1459EC9F-17A8-4D9F-8C50-5272854A5E80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1459EC9F-17A8-4D9F-8C50-5272854A5E80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
