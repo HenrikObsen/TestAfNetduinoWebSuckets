@@ -1,0 +1,94 @@
+ string ip = Microsoft.SPOT.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces()[0].IPAddress;
+            Debug.Print(ip);
+
+            Thread.Sleep(1000);
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(@"http://services.softsystems.dk/Default2.aspx");
+
+
+            string postData = "test1=hej1&test2=hej2";
+
+            //Debug.Print(postData);
+
+            byte[] data = Encoding.UTF8.GetBytes(postData);
+
+            //Set parameters of web request for HTTP POST
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = data.Length;
+            request.KeepAlive = false;
+
+            //Create a stream to send the post data to
+            using (Stream postDataStream = request.GetRequestStream())
+            {
+                postDataStream.Write(data, 0, data.Length);
+                postDataStream.Close();
+            }
+
+
+            Thread.Sleep(1000);
+--------------------------------------------------------------------------------------------------------
+  string test1 = Request.Form["test1"];
+        string test2 = Request.Form["test2"];
+
+        string path = Request.PhysicalApplicationPath + "Test2.txt";
+
+        StreamWriter sw = new StreamWriter(path);
+
+        sw.Write(test1 + " - " + test2 + "," + DateTime.Now.ToString());
+
+        sw.Close();
+
+        StreamReader sr = File.OpenText(path);
+        string input = sr.ReadToEnd();
+        sr.Close();
+
+        Response.Write(input);
+-----------------------------------------------------------------------------------------------------
+
+using (HttpWebRequest request = (HttpWebRequest)WebRequest.Create(@"http://services.softsystems.dk/default.aspx?test=1234567"))
+            {
+                //request.Proxy = proxy;
+                request.Method = "GET";
+                request.KeepAlive = false;
+                request.Timeout = 7000;
+                request.ReadWriteTimeout = 7000;
+
+                using (var response = (HttpWebResponse)request.GetResponse())
+                {
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+                        byte[] buffer = new byte[response.ContentLength];
+
+                        using (Stream stream = response.GetResponseStream())
+                        {
+                            stream.Read(buffer, 0, (int)response.ContentLength);
+
+                            string input = new string(Encoding.UTF8.GetChars(buffer));
+                            
+                            Debug.Print(input);
+                            Thread.Sleep(2000);
+
+                        }
+                    }
+--------------------------------------------------------------------------------------------------------
+ if (!string.IsNullOrEmpty(Request.QueryString["test"]))
+        {
+            string test = Request.QueryString["test"];
+            
+            string path = Request.PhysicalApplicationPath + "Test.txt";
+
+            StreamWriter sw = new StreamWriter(path);
+
+            sw.Write(test + "," + DateTime.Now.ToString());
+
+            sw.Close();
+
+            StreamReader sr = File.OpenText(path);
+            string input = sr.ReadToEnd();
+            sr.Close();
+
+            Response.Write(input);
+        }
+------------------------------------------------------------------------------------------------------------------------
+

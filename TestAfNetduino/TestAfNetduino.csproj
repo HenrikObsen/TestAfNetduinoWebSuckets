@@ -53,4 +53,7 @@
     <Reference Include="System" />
     <Reference Include="GoBus" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="PostGetNetduino.txt" />
+  </ItemGroup>
 </Project>
